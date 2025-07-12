@@ -69,7 +69,7 @@ namespace Assignment_Session_6
         {
             int result = 1;
 
-            for (int i = 1;i < number;i++)
+            for (int i = 1;i <= number;i++)
             {
                 result *= i;
             }
@@ -285,15 +285,29 @@ namespace Assignment_Session_6
              7- Create function to calculate the factorial of the number specified as parameter 
              */
 
-            Console.WriteLine("Enter a number: ");
-            int input = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter a number: ");
+            //int input = int.Parse(Console.ReadLine());
 
-            int factorial  = Factorial(input);
+            //int factorial  = Factorial(input);
 
-            Console.WriteLine($"Factorial of {input} is: {factorial}");
+            //Console.WriteLine($"Factorial of {input} is: {factorial}");
 
             #endregion
 
+
+            #region Q8 
+
+            /*
+             8- Create a function named "ChangeChar" to modify a letter in a certain 
+                position (0 based) of a string, replacing it with a different letter 
+             */
+
+
+            /// ????????????????????????? ///
+            /// ????????????????????????? ///
+           
+
+            #endregion
 
         }
     }

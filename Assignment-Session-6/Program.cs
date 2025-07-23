@@ -1,7 +1,9 @@
 ﻿using System.Data;
+using System.Formats.Tar;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Assignment_Session_6
 {
@@ -35,47 +37,79 @@ namespace Assignment_Session_6
             return sum;
         }
 
-        public static bool IsPrime (int number )
+
+
+        // 3
+
+        public static void SumAndSubstraction ( double X,double Y ,out double sumtion,out double abstraction)
         {
-            if ( number <= 1  )
+            sumtion = X + Y;
+            abstraction = X * Y;
+        }
+
+
+
+        
+
+        // Ex 4 
+
+        public static int SumOfDigit(int number)
+        {
+            int Sum = 0;
+            while ( number != 0 )
+            { 
+                Sum += number % 10;     // بتحصل ع اخر رقم 
+                number /= 10;          // بتحذف اخر رقم
+            }
+            return Sum;
+        }
+
+        // Ex 5
+
+        public static bool IsPrime(int number)
+        {
+            if (number <= 1 || number == 2)
                 return false;
 
-            if ( number == 2 )
-                return false;
-
-
-            for (int i = 2; i < number; i++ )
+            for (int i = 2;i < number;i++)
             {
-                if (number % i == 0)
+                if ( number % i == 0 )
+                {
                     return false;
+                }
             }
             return true;
         }
 
-        public static void MinMaxArray (ref int[] array , ref int min , ref int max)
+        // 6 
+
+        public static void MaxAndMinArray(ref  int[] arr , ref int max , ref int min)
         {
-             min = array[0];
-             max = array[0];
-            for (int i = 0; i < array.Length; i++)
+            max = arr[0];
+            min = arr[0];
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (array[i] > max)
-                    max = array[i];
-                if (array[i] < min)
-                    min = array[i];
+                if (arr[i] > max)
+                    max = arr[i];
+                 if (arr[i] < min)
+                    min = arr[i];
             }
         }
 
-        public static int  Factorial(int number)
+        // 7 
+
+
+        public static int Factorial (int Number)
         {
             int result = 1;
-
-            for (int i = 1;i <= number;i++)
+            for (int i = 1;i <= Number;i++)
             {
                 result *= i;
             }
-
             return result;
         }
+
       
 
         static void Main(string[] args)
@@ -178,54 +212,17 @@ namespace Assignment_Session_6
                   return result of summation and subtracting of two numbers
             */
 
-            //Console.WriteLine(" Enter the Number 1 ");
-            //int num1 = int.Parse(Console.ReadLine());
-
-            //Console.WriteLine(" Enter the Number 2 ");
-            //int num2 = int.Parse(Console.ReadLine());
-
-            //Console.WriteLine(" Enter the Number 3 ");
-            //int num3 = int.Parse(Console.ReadLine());
-
-            //Console.WriteLine(" Enter the Number 4 ");
-            //int num4 = int.Parse(Console.ReadLine());
-
-            //numbers(num1, num2, num3, num4, out int sum, out int sub);
-
-            //Console.WriteLine($" Summation {sum}");
-            //Console.WriteLine($" Substracting {sub}");
+           
 
 
-            /* الكود بطريقه تانيه */
+            //double A, B, sumtion, abstraction;
+            //B = 15;
+            //A = 20;
 
-            //Console.WriteLine(" Please Enter Parameter 1 ");
-            //int.TryParse(Console.ReadLine(), out int Parameter1);
+            //SumAndSubstraction(A, B, out sumtion, out abstraction);
 
-            //Console.WriteLine(" Please Enter Parameter 2 ");
-            //int.TryParse(Console.ReadLine(), out int Parameter2);
-
-
-            //Console.WriteLine(" Please Enter Parameter 3 ");
-            //int.TryParse(Console.ReadLine(), out int Parameter3);
-
-            //Console.WriteLine(" Please Enter Parameter 4 ");
-            //int.TryParse(Console.ReadLine(), out int Parameter4);
-
-            //// جمع
-            //int summation = Parameter1 + Parameter2;
-
-            //Console.Clear();
-            //Console.WriteLine($" Summation is => {summation} \n");
-
-            //// طرح
-            //int subtracting = Parameter3 - Parameter4;
-
-
-            //Console.WriteLine($" Subtracting is => {subtracting}");
-
-
-
-
+            //Console.WriteLine(sumtion);
+            //Console.WriteLine(abstraction);
 
             #endregion
 
@@ -239,6 +236,24 @@ namespace Assignment_Session_6
                 The sum of the digits of the number 25 is: 7
              */
 
+            //int Result , input;
+            //bool flag;
+
+            //do
+            //{
+            //    Console.WriteLine(" Please Enter Number ");
+            //   flag = int.TryParse(Console.ReadLine(), out input);
+            //    if (flag == false)
+            //    {
+            //        Console.WriteLine(" Error , Please Enter Number Again");
+            //    }
+            //}  
+            //while (flag == false);
+
+
+            //Result = SumOfDigit(input);
+            //Console.WriteLine(" Result => " + Result);
+
             #endregion
 
 
@@ -251,14 +266,30 @@ namespace Assignment_Session_6
                  and retuns true if it is prime, or false if it is not:
              */
 
-            //Console.WriteLine(" Enter Your Number Integer :");
-            //int value = int.Parse( Console.ReadLine() );
 
-            //if (IsPrime(value))
-            //    Console.WriteLine($"  Is prime {value}");
+            //int  input;
+            //bool flag;
+
+            //do
+            //{
+            //    Console.WriteLine(" Please Enter Number ");
+            //    flag = int.TryParse(Console.ReadLine(), out input);
+            //    if (flag == false)
+            //    {
+            //        Console.WriteLine(" Error , Please Enter Number Again");
+            //    }
+            //}
+            //while (flag == false);
+
+            //if (IsPrime(input) == false)
+            //{
+            //    Console.WriteLine($" Number -> {input} Is Not Prime");
+            //}
             //else
-            //    Console.WriteLine($"  Is not a prime {value}");
+            //{
+            //    Console.WriteLine($" Number -> {input} Is  Prime");
 
+            //}
 
             #endregion
 
@@ -269,11 +300,42 @@ namespace Assignment_Session_6
                 maximum values stored in an array, using reference parameters
              */
 
-            //int[] numbers = { 10, 20, 80, 85, 5 };
-            //int min = 0;
-            //int max = 0;
 
-            //MinMaxArray (ref numbers, ref min, ref max);
+            //int Size;
+            //bool flag;
+
+            //do
+            //{
+            //    Console.WriteLine(" Please Enter Number ");
+            //    flag = int.TryParse(Console.ReadLine(), out Size);
+            //    if (flag == false)
+            //    {
+            //        Console.WriteLine(" Error , Please Enter Number Again");
+            //    }
+            //}
+            //while (flag == false || Size < 1);
+
+            //int[] numbers = new int [Size];
+
+            //for (int i = 0;i < numbers.Length ;i++)
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine($" Enter Element { i + 1 } Of Array");
+            //        flag = int.TryParse(Console.ReadLine(),out numbers[i]);
+
+            //    } while (flag == false);
+            //}
+
+
+
+
+
+
+            //int min =0;
+            //int max =0;
+
+            //MaxAndMinArray(ref numbers , ref max , ref min);
 
             //Console.WriteLine($" Max -> {max}");
             //Console.WriteLine($" Min -> {min}");
@@ -285,12 +347,24 @@ namespace Assignment_Session_6
              7- Create function to calculate the factorial of the number specified as parameter 
              */
 
-            //Console.WriteLine("Enter a number: ");
-            //int input = int.Parse(Console.ReadLine());
 
-            //int factorial  = Factorial(input);
 
-            //Console.WriteLine($"Factorial of {input} is: {factorial}");
+            //int Number;
+            //bool flag;
+
+            //do
+            //{
+            //    Console.WriteLine(" Please Enter Number ");
+            //    flag = int.TryParse(Console.ReadLine(), out Number);
+            //    if (flag == false)
+            //    {
+            //        Console.WriteLine(" Error , Please Enter Number Again");
+            //    }
+            //}
+            //while (flag == false || Number < 1);
+
+            //int Sum = Factorial(Number);
+            //Console.WriteLine(Sum);
 
             #endregion
 
@@ -305,7 +379,7 @@ namespace Assignment_Session_6
 
             /// ????????????????????????? ///
             /// ????????????????????????? ///
-           
+
 
             #endregion
 

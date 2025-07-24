@@ -3,6 +3,7 @@ using System.Formats.Tar;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
+using System.Text;
 using static System.Collections.Specialized.BitVector32;
 
 namespace Assignment_Session_6
@@ -37,6 +38,40 @@ namespace Assignment_Session_6
             return sum;
         }
 
+        public static int TakeNumFromUser()
+        {
+            int Number;
+            bool flag;
+            do
+            {
+                Console.WriteLine(" Please Enter Number  ");
+                flag = int.TryParse(Console.ReadLine(), out Number);
+                if (flag == false)
+                {
+                    Console.WriteLine(" Error , Please Enter Numbery Again ");
+                }
+            } while (flag == false);
+            return Number;
+            
+        }
+
+        public static int FullArrayFromUser(int number)
+        {
+            bool flag;
+            int[] numbers = new int[number];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                do
+                {
+                    Console.WriteLine($" Enter Element {i + 1} Of Array");
+                    flag = int.TryParse(Console.ReadLine(), out numbers[i]);
+
+                } while (flag == false);
+            }
+            return number;
+        }
+
 
 
         // 3
@@ -56,9 +91,11 @@ namespace Assignment_Session_6
         public static int SumOfDigit(int number)
         {
             int Sum = 0;
+            int result = 0;
             while ( number != 0 )
-            { 
-                Sum += number % 10;     // بتحصل ع اخر رقم 
+            {             
+                result = number % 10;   // بتحصل ع اخر رقم 
+                Sum += result;          // بتخزن كل مرا 
                 number /= 10;          // بتحذف اخر رقم
             }
             return Sum;
@@ -68,7 +105,7 @@ namespace Assignment_Session_6
 
         public static bool IsPrime(int number)
         {
-            if (number <= 1 || number == 2)
+            if (number < 2 )
                 return false;
 
             for (int i = 2;i < number;i++)
@@ -83,10 +120,10 @@ namespace Assignment_Session_6
 
         // 6 
 
-        public static void MaxAndMinArray(ref  int[] arr , ref int max , ref int min)
+        public static void MaxAndMinArray(int[] arr )
         {
-            max = arr[0];
-            min = arr[0];
+          int  max = arr[0];
+          int   min = arr[0];
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -95,12 +132,13 @@ namespace Assignment_Session_6
                  if (arr[i] < min)
                     min = arr[i];
             }
+            Console.WriteLine($" Max -> {max}  Min {min}");
         }
 
         // 7 
 
-
-        public static int Factorial (int Number)
+        // for
+        public static long Factorial (int Number)
         {
             int result = 1;
             for (int i = 1;i <= Number;i++)
@@ -110,8 +148,32 @@ namespace Assignment_Session_6
             return result;
         }
 
-      
+        // While
 
+        public static long Factorial02(int Number)
+        {
+            int result = 1;
+            while (Number > 1)
+            {
+                result *= Number;
+                Number--;
+            }
+            return result;
+        }
+
+        // 8 
+
+        public static void ReplacedLetter(string word, char letter, int index)
+        {
+            if (index <= 0 && index < word.Length)
+            {
+                StringBuilder sp = new StringBuilder(word);
+                sp[index] = letter;
+                word = sp.ToString();
+            }
+            Console.WriteLine($" After Replaced --> {word} ");
+
+        }
         static void Main(string[] args)
         {
             #region Examples
@@ -128,6 +190,10 @@ namespace Assignment_Session_6
 
             // string y = x.HasValue ? x.Value.ToString() : " X is Null";
             #endregion
+
+
+
+
 
             #region Q1 
 
@@ -212,7 +278,7 @@ namespace Assignment_Session_6
                   return result of summation and subtracting of two numbers
             */
 
-           
+
 
 
             //double A, B, sumtion, abstraction;
@@ -235,6 +301,17 @@ namespace Assignment_Session_6
                 Enter a number: 25                                                                                             
                 The sum of the digits of the number 25 is: 7
              */
+
+
+            // ------------- Solution Very Good --------------
+
+            //int Number = TakeNumFromUser();
+            //Console.WriteLine(SumOfDigit(Number));
+
+
+
+            // ----------------------------------------------------
+            // Solution Another
 
             //int Result , input;
             //bool flag;
@@ -265,6 +342,16 @@ namespace Assignment_Session_6
              5- Create a function named "IsPrime", which receives an integer number 
                  and retuns true if it is prime, or false if it is not:
              */
+
+            // ------------- Solution Very Good --------------
+
+
+            //int Number = TakeNumFromUser();
+            //Console.WriteLine(IsPrime(Number));
+
+
+            // ----------------------------------------------
+
 
 
             //int  input;
@@ -301,6 +388,12 @@ namespace Assignment_Session_6
              */
 
 
+
+
+
+            // ***************************************************
+
+
             //int Size;
             //bool flag;
 
@@ -328,10 +421,6 @@ namespace Assignment_Session_6
             //}
 
 
-
-
-
-
             //int min =0;
             //int max =0;
 
@@ -347,6 +436,20 @@ namespace Assignment_Session_6
              7- Create function to calculate the factorial of the number specified as parameter 
              */
 
+
+            //  --------------------- for ----------------
+
+            //long Number = TakeNumFromUser();
+            //Console.WriteLine(Factorial(Number));
+
+            // ----------------- While ----------------
+
+            //long Number = TakeNumFromUser();
+            //Console.WriteLine(Factorial02(Number));
+
+
+
+            ////// --------------------------------------------------
 
 
             //int Number;
@@ -367,7 +470,7 @@ namespace Assignment_Session_6
             //Console.WriteLine(Sum);
 
             #endregion
-             
+
 
             #region Q8 
 
@@ -376,9 +479,8 @@ namespace Assignment_Session_6
                 position (0 based) of a string, replacing it with a different letter 
              */
 
+            ReplacedLetter("Hazo", 'A', 0);
 
-            /// ????????????????????????? ///
-            /// ????????????????????????? ///
 
 
             #endregion
